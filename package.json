@@ -1,0 +1,27 @@
+{
+  "name": "calendly-clone",
+  "version": "0.1.0",
+  "description": "A lightweight Calendly-style booking app on Cloudflare's free tier",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:pages": "wrangler pages dev dist --compatibility-date=2024-01-01",
+    "dev:full": "npm run build && wrangler pages dev dist --compatibility-date=2024-01-01",
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "db:init": "wrangler d1 execute calendly-db --file=./schema.sql",
+    "db:migrate": "wrangler d1 migrations apply calendly-db",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.10.0",
+    "solid-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "vite-plugin-solid": "^2.8.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "wrangler": "^3.19.0"
+  }
+}
+
